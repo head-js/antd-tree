@@ -1,0 +1,8 @@
+[
+  { "ns": "com.disney", "n": "movies", "parent": "com.disney", "label": "Movies", "order": 1 },
+  { "ns": "com.disney", "n": "movies.mulan", "parent": "movies", "label": "Mulan", "order": 4 },
+  { "ns": "com.disney", "n": "movies.mulan.ost-1", "parent": "movies.mulan", "label": "OST 1", "order": 3 },
+  { "ns": "com.disney", "n": "movies.mulan.ost-mulan-s-decision", "parent": "movies.mulan", "label": "Mulan's Decision", "order": 2 },
+  { "ns": "com.disney", "n": "movies.mulan-2020", "parent": "movies", "label": "Mulan 2020", "order": 5 },
+  { "ns": "com.disney", "n": "movies.mulan-2020.ost-1", "parent": "movies.mulan-2020", "label": "OST 1", "order": 5 }
+]
