@@ -332,9 +332,6 @@ var _initialiseProps = function _initialiseProps() {
   };
 };
 
-var SubMenu$1 = Menu.SubMenu;
-var MenuItem$1 = Menu.Item;
-
 function calMarginBottom(tree, selectedKeys) {
   var MENU_HEIGHT = 42;
 
@@ -376,6 +373,23 @@ function calMarginBottom(tree, selectedKeys) {
   return margin * MENU_HEIGHT;
 }
 
+function splitNs(org) {
+  var ids = [];
+  var ns = '';
+  org.split('.').forEach(function (n) {
+    if (ns === '') {
+      ns += n;
+    } else {
+      ns += '.' + n; // eslint-disable-line prefer-template
+    }
+    ids.push(ns);
+  });
+  return ids;
+}
+
+var SubMenu$1 = Menu.SubMenu;
+var MenuItem$1 = Menu.Item;
+
 function recursive(node, parentKeyPath, _onTitleClick) {
   if (node.children.length > 0) {
     var keyPath = [node.id].concat(parentKeyPath);
@@ -402,11 +416,12 @@ var Tree = function (_Component) {
   inherits(Tree, _Component);
 
   // static propTypes = {
-  //   tree: PropTypes.arrayOf(PropTypes.shape({})),
+  //   dataSource: PropTypes.arrayOf(@head/TreeNode),
   //   loading: PropTypes.bool,
-  //   prefix: PropTypes.string,
-  //   keyPath: PropTypes.arrayOf(PropTypes.string),
+  //   mode: PropTypes.string,
+  //   prefix: PropTypes.string.required,
   //   postfix: PropTypes.string,
+  //   selectedKeys: PropTypes.string,
   // };
 
   function Tree(props) {
@@ -422,11 +437,12 @@ var Tree = function (_Component) {
     key: 'click',
     value: function click(keyPath) {
       var _props = this.props,
+          mode = _props.mode,
           prefix = _props.prefix,
           _props$postfix = _props.postfix,
           postfix = _props$postfix === undefined ? '' : _props$postfix;
 
-      var pathname = prefix + '/' + keyPath.reverse() + postfix;
+      var pathname = mode === 'ns' ? prefix + '/' + keyPath[0] + postfix : prefix + '/' + keyPath.reverse() + postfix;
       var location = { pathname: pathname };
       this.props.dispatch(routerRedux.push(location));
     }
@@ -438,11 +454,13 @@ var Tree = function (_Component) {
       var _props2 = this.props,
           dataSource = _props2.dataSource,
           loading = _props2.loading,
+          mode = _props2.mode,
           width = _props2.width,
           className = _props2.className;
 
 
-      var selectedKeys = this.props.selectedKeys ? this.props.selectedKeys.split(',').reverse() : [];
+      var selectedKeys = mode === 'ns' ? // eslint-disable-line no-nested-ternary
+      splitNs(this.props.selectedKeys) : this.props.selectedKeys ? this.props.selectedKeys.split(',').reverse() : [];
 
       var marginBottom = calMarginBottom(dataSource, selectedKeys);
 
@@ -471,6 +489,7 @@ var Tree = function (_Component) {
 }(React.Component);
 
 Tree.defaultProps = {
+  mode: 'default',
   width: 160
 };
 
