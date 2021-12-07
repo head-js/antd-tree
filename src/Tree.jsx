@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as routerRedux from 'react-router-redux';
 import Spin from 'antd/lib/spin';
 import Menu from './antd-lib-menu/Index.jsx';
 import calMarginBottom from './calMarginBottom';
@@ -39,10 +38,10 @@ class Tree extends Component {
   }
 
   click(keyPath) {
-    const { mode, prefix, postfix = '' } = this.props;
+    const { mode, prefix, postfix = '', push } = this.props;
     const pathname = (mode === 'ns') ? `${prefix}/${keyPath[0]}${postfix}` : `${prefix}/${keyPath.reverse()}${postfix}`;
     const location = { pathname };
-    this.props.dispatch(routerRedux.push(location));
+    push(location);
   }
 
   render() {

@@ -1,4 +1,4 @@
-/*! @arknights/antd-tree v0.1.1 (c) 2020 */
+/*! @arknights/antd-tree v0.2.0 (c) 2020 */
 'use strict';
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
@@ -6,7 +6,6 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 var reactRedux = require('react-redux');
-var routerRedux = require('react-router-redux');
 var Spin = _interopDefault(require('antd/lib/spin'));
 var RcMenu = require('rc-menu');
 var RcMenu__default = _interopDefault(RcMenu);
@@ -440,11 +439,12 @@ var Tree = function (_Component) {
           mode = _props.mode,
           prefix = _props.prefix,
           _props$postfix = _props.postfix,
-          postfix = _props$postfix === undefined ? '' : _props$postfix;
+          postfix = _props$postfix === undefined ? '' : _props$postfix,
+          push = _props.push;
 
       var pathname = mode === 'ns' ? prefix + '/' + keyPath[0] + postfix : prefix + '/' + keyPath.reverse() + postfix;
       var location = { pathname: pathname };
-      this.props.dispatch(routerRedux.push(location));
+      push(location);
     }
   }, {
     key: 'render',

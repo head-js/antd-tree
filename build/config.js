@@ -13,7 +13,6 @@ const builds = {
     external: [
       'react',
       'react-redux',
-      'react-router-redux',
       'antd/lib/spin',
       // 'antd/lib/menu',
       'rc-menu',
