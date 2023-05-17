@@ -11,7 +11,7 @@ export default class Menu extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-menu',
     className: '',
-    theme: 'light',  // or dark
+    theme: 'light', // or dark
   };
 
   inlineOpenKeys = []; // eslint-disable-line react/sort-comp
@@ -31,11 +31,14 @@ export default class Menu extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ('openKeys' in nextProps) {
-      this.setState({ openKeys: nextProps.openKeys });
-      // return;
+  static getDerivedStateFromProps(props, state) {
+    if ('openKeys' in props) {
+      if (props.openKeys !== state.openKeys) {
+        return { openKeys: props.openKeys };
+      }
     }
+
+    return null;
   }
 
   handleClick = (e) => {

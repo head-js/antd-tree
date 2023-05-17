@@ -1,0 +1,38 @@
+/* @arknights/antd-tree */
+
+/* .ant-menu.arknights-antd-tree .ant-menu-submenu-open {
+  z-index: 1000;
+} */
+
+.ant-menu.arknights-antd-tree .ant-menu-submenu {
+  position: relative;
+}
+
+.ant-menu.arknights-antd-tree .ant-menu-submenu-vertical > .ant-menu {
+  top: -4px;
+  left: 100%;
+  position: absolute;
+  margin-left: 4px;
+  z-index: 1050;
+}
+
+.ant-menu.arknights-antd-tree .ant-menu-vertical.ant-menu-sub:not([class*=-active]) {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+/* .ant-menu.arknights-antd-tree .ant-menu-vertical {
+  border-right: none;
+} */
+
+/* .ant-menu.arknights-antd-tree .ant-menu-vertical .ant-menu-item:not(:last-child) {
+  margin-bottom: 4px;
+} */
+
+.ant-menu.arknights-antd-tree .ant-menu-submenu-vertical > .ant-menu-submenu-title:after {
+  font-family: anticon !important;
+  font-size: 12px;
+  position: absolute;
+  content: "⇁"; /* ⇁, ⇢, ⤍ */
+  right: 16px;
+}

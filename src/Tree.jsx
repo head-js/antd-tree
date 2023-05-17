@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Spin from 'antd/lib/spin';
 import Menu from './antd-lib-menu/Index.jsx';
 import calMarginBottom from './calMarginBottom';
@@ -75,4 +74,4 @@ Tree.defaultProps = {
 };
 
 
-export default connect()(Tree);
+export default Tree;

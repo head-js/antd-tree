@@ -46,12 +46,16 @@ export default class App extends Component {
     getState() { },
   }
 
+  push = function (...args) {
+    console.log('this.push', args);
+  }
+
   render() {
     const { tree, loading } = this.state;
 
-    const menuIds = this.props.router.getRoute(1); // -> /resources/{menuIds}
+    const menuIds = this.props.router.getRoute(1); // -> /resources/{menuIds}, e.g.: #/resources/movies.mulan
     // const keyPath = menuIds ? menuIds.split(',') : [];
 
-    return <Tree store={this.store} mode="ns" dataSource={tree} loading={loading} prefix="/resources" selectedKeys={menuIds} />;
+    return <Tree store={this.store} push={this.push} mode="ns" dataSource={tree} loading={loading} prefix="/resources" selectedKeys={menuIds} />;
   }
 }

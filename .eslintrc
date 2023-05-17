@@ -1,27 +1,28 @@
 {
-  "parser": "babel-eslint",
-  "extends": "airbnb",
+  "parser": "@babel/eslint-parser",
+  "extends": "eslint-config-airbnb",
   "env": {
     "browser": true
   },
   "globals": {
-    "router": true
-  },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "build/webpack.config.js"
-      }
-    }
   },
   "rules": {
-    "func-names": 0,
-    "import/extensions": 0,
-    "max-len": 0,
-    "no-console": 0,
-    "no-else-return": 0,
-    "no-underscore-dangle": 0,
-    "prefer-const": 0,
-    "react/prop-types": 0
+    "arrow-parens": "off",
+    "consistent-return": "off",
+    "func-names": "off",
+    "import/extensions": "off",
+    "max-len": "off",
+    "no-console": "off",
+    "no-else-return": "off",
+    "no-multiple-empty-lines": "off",
+    "no-underscore-dangle": "off",
+    "object-curly-newline": "off",
+    "prefer-const": "off",
+    "prefer-destructuring": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "react/sort-comp": "off",
+    "react/static-property-placement": "off"
   }
 }
