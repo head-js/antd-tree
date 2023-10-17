@@ -100,7 +100,7 @@
     "@babel/preset-react": "7.12.13",
     "@babel/runtime": "7.12.18",
     "@babel/template": "7.12.13",
-    "@babel/traverse": "7.12.17",
+    "@babel/traverse": "7.23.2",
     "@babel/types": "7.12.17",
     "@head/node": "0.0.3",
     "@rollup/plugin-babel": "5.3.1",
