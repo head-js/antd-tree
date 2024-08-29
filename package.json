@@ -125,7 +125,7 @@
     "react-router": "5.2.0",
     "rollup": "2.60.2",
     "vanilla.js": "0.2.8",
-    "webpack": "4.44.2",
+    "webpack": "5.94.0",
     "webpack-bundle-analyzer": "3.9.0",
     "webpack-chain": "6.5.1",
     "webpack-cli": "4.7.2",
